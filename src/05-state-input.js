@@ -4,6 +4,7 @@ import { useState } from "react";
 const content = document.createElement("div");
 document.body.appendChild(content);
 
+//controlled component
 function Component() {
   const [name, setName] = useState("");
   const [names, setNames] = useState([]);

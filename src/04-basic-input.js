@@ -5,6 +5,7 @@ import { useRef } from "react";
 const content = document.createElement("div");
 document.body.appendChild(content);
 
+// uncontrolled component
 function Component() {
   const [names, setNames] = useState([]); // <-- initial state
   const inputRef = useRef(null);

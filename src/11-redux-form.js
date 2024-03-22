@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import isEmail from "validator/lib/isEmail";
 import Field from "./08-field-component-field";
 import CourseSelect from "./09-course-select.js";
+import { useEffect } from "react";
 
 function FormComponent(props) {
   const [fields, setFields] = useState(
@@ -15,10 +16,12 @@ function FormComponent(props) {
   );
   const [fieldErrors, setFieldErrors] = useState({});
 
-  // // reset from parent
-  // if (props.fields !== fields) {
-  //   setFields(props.fields);
-  // }
+  useEffect(() => {
+    // reset from parent
+    if (props.fields !== fields) {
+      setFields(props.fields);
+    }
+  }, [props.fields]);
 
   let onFormSubmit = (evt) => {
     const person = fields;

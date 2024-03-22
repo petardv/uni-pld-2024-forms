@@ -14,15 +14,15 @@ function CourseSelect(props) {
   const [department, setDepartment] = useState(null);
   const [course, setCourse] = useState(null);
   const [courses, setCourses] = useState([]);
-  const [loading, setLoading] = useState(false);
+  const [_loading, _setLoading] = useState(false);
 
-  // if (department !== props.department) {
-  //   setDepartment(props.department);
-  // }
+  if (department !== props.department) {
+    setDepartment(props.department);
+  }
 
-  // if (course !== props.course) {
-  //   setCourse(props.course);
-  // }
+  if (course !== props.course) {
+    setCourse(props.course);
+  }
 
   let onSelectDepartment = (evt) => {
     const department = evt.target.value;
@@ -43,10 +43,10 @@ function CourseSelect(props) {
   };
 
   let fetch = (department) => {
-    setLoading(true);
+    _setLoading(true);
     setCourses([]);
     apiClient(department).then((courses) => {
-      setLoading(false);
+      _setLoading(false);
       setCourses(courses);
     });
   };
@@ -62,7 +62,7 @@ function CourseSelect(props) {
   };
 
   let renderCourseSelect = () => {
-    if (loading) {
+    if (_loading) {
       return <img alt="loading" src="/img/loading.gif" />;
     }
     if (!department || !courses.length) return <span />;
